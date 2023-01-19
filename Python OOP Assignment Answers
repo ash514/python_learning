@@ -1,0 +1,421 @@
+Python OOP Assignment Answers
+=================================
+Q1. What is the purpose of Python's OOP?
+Answer:In Python, object-oriented Programming (OOPs) is a programming paradigm that uses objects and classes in programming.
+It aims to implement real-world entities like inheritance, polymorphisms, encapsulation, etc. in the programming
+
+Q2. Where does an inheritance search look for an attribute?
+Answer:An inheritance search looks for an attribute first in the instance object, then in the class the instance was created from, then in all higher superclasses, 
+progressing from left to right (by default).
+
+Q3. How do you distinguish between a class object and an instance object?
+Answer:The class = the blue print. The Object is an actual thing that is built based on the 'blue print' (like the house).
+An instance is a virtual copy (but not a real copy) of the object.
+example:
+class Test
+	x=10
+	def_init_(self,a,b)
+		self.a=a
+		self.b=b
+print(Test.x)-->class object
+t1=Test(3,4)-->instance object
+
+we can create any number of instance object but class object is only one
+and when we create instance object it automatically called init method.		
+
+Q4. What makes the first argument in a class’s method function special?
+Answer:
+In Python, the first argument in a class method is typically named self and it refers to the instance of the class on which the method is being called. 
+It is used to access and modify the attributes and behavior of the specific instance of the class.
+It is not a special keyword in Python, but it is a convention that is widely used and it is considered as a best practice to use self as the name for the first argument.
+
+Q5. What is the purpose of the init method?
+Answer:
+A constructor of a class in Python is defined using the __init__ method. The python __init__ is a reserved method in Python that behaves like any other member function of the class, except the statements written under its definition are used to initialize the data members of a class in Python, i.e. 
+it basically contains assignment statements. This method is automatically called at the time of class instantiation or object creation. 
+
+Q6. What is the process for creating a class instance?
+Answer:
+The process for creating a class instance, also known as instantiation, typically involves the following steps:
+
+*Define a class using the class keyword, followed by the name of the class.
+
+*Define the class's attributes and methods within the class block.
+
+*Create an instance of the class by calling the class name as if it were a function.
+
+Optionally, initialize the attributes of the new instance using the class's constructor method, typically called init().
+
+Example:
+class MyClass:
+    def __init__(self, attribute1, attribute2):
+        self.attribute1 = attribute1
+        self.attribute2 = attribute2
+
+my_instance = MyClass("value1", "value2")
+
+In this example, MyClass is defined with two attributes, attribute1 and attribute2. A new instance of MyClass is created and assigned to the variable my_instance,
+and the attributes are initialized with the values "value1" and "value2".
+
+
+Q7. What is the process for creating a class?
+Answer:
+To create a class in Python, you use the class keyword, followed by the name of the class. The class definition typically starts with the __init__ method,
+which is used to initialize the attributes of the class. You can then define other methods and properties within the class definition. Here is an example of a simple
+class definition in Python:
+class MyClass:
+    def __init__(self):
+        self.attribute = 0
+
+    def my_method(self):
+        print("This is a method of the class.")
+In this example MyClass is the class name, __init__ is the class constructor which initialize the class attributes,
+and my_method is a method of the class which can be called on an instance of the class.
+
+Q8. How would you define the superclasses of a class?
+Answer:
+In Python, you can define a class that inherits from one or more superclasses by including the names of the superclasses in parentheses after the class name in the class definition.
+
+Here is an example of a class definition that inherits from two superclasses:
+class MySubClass(SuperClass1, SuperClass2):
+    def __init__(self):
+        self.attribute = 0
+
+    def my_method(self):
+        print("This is a method of the subclass.")
+
+
+In this example, MySubClass is the subclass and SuperClass1 and SuperClass2 are the superclasses. The subclass inherits all the attributes and methods from the superclasses, 
+and can also define its own attributes and methods.
+
+You can use the super() function to call methods of the superclass from within the subclass. This allows you to reuse functionality from the superclass and also to extend or
+override it as needed.
+class MySubClass(SuperClass):
+    def __init__(self):
+        super().__init__()
+        self.attribute = 0
+This will call the __init__ method of the superclass, allowing the subclass to inherit the initialization logic of the superclass, and add or modify it as needed.
+
+
+Q9. What is the relationship between classes and modules?
+Answer:
+In Python, a module is a file containing Python definitions and statements, while a class is a blueprint for creating objects (instances) with a certain defined behavior.
+
+A module can contain multiple classes and other definitions such as functions, variables etc. These classes and other definitions can be imported into other modules or scripts to be used.
+
+For example, you can have a module called "mymodule.py" that contains the definition of a class called "MyClass".
+Another module or script can then import the "MyClass" definition by using the "import" statement and use it to create instances of the class.
+# mymodule.py
+
+class MyClass:
+    def __init__(self, attribute1):
+        self.attribute1 = attribute1
+    def my_method(self):
+        print(self.attribute1)
+
+# another_module.py
+
+from mymodule import MyClass
+
+my_instance = MyClass("value1")
+my_instance.my_method() # prints "value1"
+Additionally, a module can also be used to package related classes and functions together to form a package, 
+which is a way to organize related modules together in a single structure.
+
+Q10. How do you make instances and classes?
+Answer:
+In Python, you can create instances of a class using the class name followed by parentheses, and passing any required arguments to the class's constructor method,
+which is typically called __init__().
+
+Here's an example of a simple class definition and creating instances of the class:
+class MyClass:
+    def __init__(self, attribute1, attribute2):
+        self.attribute1 = attribute1
+        self.attribute2 = attribute2
+
+# Creating instances of MyClass
+my_instance1 = MyClass("value1", "value2")
+my_instance2 = MyClass("value3", "value4")
+
+In this example, the class MyClass is defined with an __init__() method that takes two arguments, attribute1 and attribute2. These are assigned to the instance's attributes 
+of the same name. Then, two instances of the class are created and assigned to the variables my_instance1 and my_instance2 respectively.
+
+To define a class you use the keyword "class" followed by the name of the class, and place the class's attributes and methods within the class block.
+class MyClass:
+    def __init__(self, attribute1):
+        self.attribute1 = attribute1
+
+    def my_method(self):
+        print(self.attribute1)
+
+
+Q11. Where and how should be class attributes created?
+Answer:
+In Python, class attributes are created within the class definition and are shared among all instances of the class. 
+There are several ways to create class attributes in Python:
+
+*Using the class variable syntax: Class variables are defined directly within the class definition, outside of any method. They are usually defined at the top of the class, 
+before any method definitions.
+class MyClass:
+    class_variable = "class variable value"
+    def __init__(self, attribute1):
+        self.attribute1 = attribute1
+
+You can access the class variable from an instance or the class itself:
+my_instance = MyClass("value1")
+print(my_instance.class_variable) # "class variable value"
+print(MyClass.class_variable) # "class variable value"
+
+
+*Using the class method: Class methods are methods that are bound to the class and not the instance of the object. They are defined using the @classmethod decorator.
+
+class MyClass:
+    def __init__(self, attribute1):
+        self.attribute1 = attribute1
+
+    @classmethod
+    def create_class_variable(cls):
+        cls.class_variable = "class variable value"
+You can create the class variable by calling the class method on the class:
+
+MyClass.create_class_variable()
+my_instance = MyClass("value1")
+print(my_instance.class_variable) # "class variable value"
+
+*Using the static method: Static methods are methods that are bound to a class rather than the instances. 
+They don't have access to the instance or the class. They are defined using the @staticmethod decorator
+
+class MyClass:
+    class_variable = "class variable value"
+    def __init__(self, attribute1):
+        self.attribute1 = attribute1
+
+    @staticmethod
+    def create_class_variable():
+        MyClass.class_variable = "class variable value"
+You can create the class variable by calling the static method on the class:
+
+
+MyClass.create_class_variable()
+my_instance = MyClass("value1")
+print(my_instance.class_variable) # "class variable value"
+It's important to note that class attributes can be accessed and modified by instances and the class itself, but it's generally best practice to use class methods 
+or static methods to do so.
+
+Also, it's important to differentiate class attributes from instance attributes, class attributes are shared among all instances of the class,
+whereas instance attributes are unique to each instance.
+
+
+Q12. Where and how are instance attributes created?
+
+Q13. What does the term "self" in a Python class mean?
+Answer:
+In a Python class, "self" refers to the instance of the object that the method is being called on. 
+It is used to access the attributes and methods of the class. It is a convention to use "self" as the name of the first parameter in a class method, but it can be named anything.
+
+Q14. How does a Python class handle operator overloading?
+
+Q15. When do you consider allowing operator overloading of your classes?
+
+Q16. What is the most popular form of operator overloading?
+
+Q17. What are the two most important concepts to grasp in order to comprehend Python OOP code?
+
+Q18. Describe three applications for exception processing.
+
+Q19. What happens if you don't do something extra to treat an exception?
+
+Q20. What are your options for recovering from an exception in your script?
+
+Q21. Describe two methods for triggering exceptions in your script.
+
+Q22. Identify two methods for specifying actions to be executed at termination time, regardless of
+whether or not an exception exists.
+
+Q23. What is the purpose of the try statement?
+Answer:
+The try statement in Python is used to handle exceptions, which are events that can occur during the execution of a program that disrupt the normal flow of 
+instructions. The try statement is used to enclose a block of code that may raise an exception, and the except statement is used to handle the exception if 
+it occurs. This allows the program to continue running instead of crashing or halting.
+
+Q24. What are the two most popular try statement variations?
+Answer:
+The two most popular variations of the try statement in Python are:
+
+1.The try-except statement, which is used to catch and handle specific exceptions that may occur in the code block following the try statement.
+2.The try-finally statement, which is used to specify a block of code that must be executed, regardless of whether an exception was raised or not.
+
+Q25. What is the purpose of the raise statement?
+Answer:
+The raise statement in Python is used to manually raise an exception. This can be useful in a variety of situations, such as when a specific error condition
+occurs in the code and you want to alert the user or when you want to test the handling of exceptions in a specific part of your code.
+The raise statement can be used with or without an argument. When used with an argument, the argument should be an instance of a class that inherits from
+the base Exception class or one of its subclasses. When used without an argument, the raise statement re-raises the last exception that occurred.
+
+Q26. What does the assert statement do, and what other statement is it like?
+Answer:
+The assert statement in Python is used for debugging purposes. It is used to test if a given condition is true, and if it is not true, an AssertionError is
+raised with an optional error message. It's typically used to check for valid input or states in the program and to check the invariants of the program.
+It's similar to a raise statement in that it raises an exception when a certain condition is not met, but while raise statement is intended to be used as part
+of the program's normal operation, assert statement is intended to be used during development and testing.
+
+Q27. What is the purpose of the with/as argument, and what other statement is it like?
+
+Q28. What are *args, **kwargs?
+Answer:
+In Python, *args and **kwargs are used as a way to pass a variable number of arguments to a function.
+
+*args is used to pass a non-keyworded, variable-length argument list to a function.
+For example, if you want to pass a list or tuple of arguments to a function, you can use the * operator to pass the elements of the list or tuple as separate positional arguments.
+
+kwargs is used to pass a keyworded, variable-length argument list to a function. The double asterisk () operator is used to pass the elements of a dictionary as separate keyword 
+arguments.
+
+For example:
+def my_function(arg1, arg2, *args, **kwargs):
+    print(arg1)
+    print(arg2)
+    print(args)
+    print(kwargs)
+
+my_function(1, 2, 3, 4, 5, name='Bob', age=25)
+
+1
+2
+(3, 4, 5)
+{'name': 'Bob', 'age': 25}
+
+note:It indicates that arg1=1,arg2=2, *args=(3,4,5) and **kwargs={'name': 'Bob', 'age': 25}
+
+It allows function to accept any additional arguments without knowing how many or what type of arguments will be passed in advance.
+
+
+Q29. How can I pass optional or keyword parameters from one function to another?
+Answer:
+In Python, you can pass optional or keyword parameters from one function to another by using the double asterisk (**) operator before the parameter name
+in the function definition. This allows the function to accept a dictionary of keyword arguments, which can then be passed to another function.
+
+For example:
+
+def func1(**kwargs):
+    func2(**kwargs)
+
+def func2(param1=None, param2=None):
+    print(param1, param2)
+
+func1(param1=1, param2=2)
+
+In this example, func1 accepts any number of keyword arguments and passes them to func2 using the double asterisk operator. func2 has two optional parameters
+param1 and param2,which are set to None by default. When func1 is called with the keyword arguments param1=1 and param2=2, 
+they are passed to func2 and the output is '1 2'.
+
+Q30. What are Lambda Functions?
+Answer:
+A lambda function is a small anonymous function.
+A lambda function can take any number of arguments, but can only have one expression.
+Syntax:
+lambda arguments : expression
+The expression is executed and the result is returned:
+
+Example
+Add 10 to argument a, and return the result:
+x = lambda a : a + 10
+print(x(5))
+
+Q31. Explain Inheritance in Python with an example?
+Answer:
+It is a mechanism that allows you to create a hierarchy of classes that share a set of properties and methods by deriving a class from another class. 
+Inheritance is the capability of one class to derive or inherit the properties from another class. 
+
+Benefits of inheritance are: 
+It represents real-world relationships well.
+It provides the reusability of a code. We don’t have to write the same code again and again. Also, it allows us to add more features to a class without modifying it.
+It is transitive in nature, which means that if class B inherits from another class A, then all the subclasses of B would automatically inherit from class A.
+Inheritance offers a simple, understandable model structure. 
+Less development and maintenance expenses result from an inheritance. 
+Python Inheritance Syntax
+Class BaseClass:
+    {Body}
+Class DerivedClass(BaseClass):
+    {Body}
+
+
+Q32. Suppose class C inherits from classes A and B as class C(A,B).Classes A and B both have their own versions of method func(). If we call func() from an object of class C, 
+which version gets invoked?
+Answer:
+If class C inherits from classes A and B as class C(A, B), and both classes A and B have their own versions of the method func(), then when func() is called on an object of class C,
+ the version of the method that is called will be the one that is defined in the class that is listed first in the parentheses of the class definition. In this case, the version of
+ func() that is defined in class A will be called.
+
+This is known as "Method Resolution Order" (MRO), which is used to resolve conflicts that may arise when multiple classes inherit from the same class or interface. T
+he MRO order is determined by C3 Linearization algorithm, which is used by python to decide the order of method resolution.
+
+It's also worth noting that, in Python 3.x, if the classes A and B are derived from different classes, which itself have a func() method, 
+the MRO algorithm will follow the Linearization order of the classes and decide the order of method resolution.
+
+Q33. Which methods/functions do we use to determine the type of instance and inheritance?
+Answer:
+In Python, you can use the built-in type() function to determine the type of an instance, and the built-in issubclass() and isinstance() functions to check for inheritance.
+
+The type() function returns the type of an object. For example:
+print(type(5)) # <class 'int'>
+print(type("hello")) # <class 'str'>
+print(type(my_object)) # <class '__main__.MyClass'>
+
+The isinstance() function checks if an instance is an instance of a particular class or a subclass of that class. 
+It returns a boolean value: True if the instance is an instance of the class or a subclass, and False otherwise. For example:
+class A:
+    pass
+class B(A):
+    pass
+class C:
+    pass
+
+b = B()
+print(isinstance(b, A)) #True
+print(isinstance(b, B)) #True
+print(isinstance(b, C)) #False
+
+The issubclass() function checks if a class is a subclass of a particular class. It returns a boolean value: True if the class is a subclass, and False otherwise. For example:
+class A:
+    pass
+class B(A):
+    pass
+class C:
+    pass
+
+print(issubclass(B, A)) #True
+print(issubclass(C, A)) #False
+
+In summary, type() function is used to check the type of the instance, isinstance() function is used to check the instance is of a specific class or its subclass,
+ and issubclass() function is used to check whether a class is a subclass of a particular class.
+
+Q34.Explain the use of the 'nonlocal' keyword in Python.
+Answer:
+The nonlocal keyword is used to work with variables inside nested functions, where the variable should not belong to the inner function.
+
+Use the keyword nonlocal to declare that the variable is not local.
+Example:
+def myfunc1():
+  x = "John"
+  def myfunc2():
+    nonlocal x
+    x = "hello"
+  myfunc2()
+  return x
+
+print(myfunc1())
+
+Q35. What is the global keyword?
+Answer:
+The global keyword is used to create global variables from a no-global scope, e.g. inside a function.
+#create a function:
+def myfunction():
+  global x
+  x = "hello"
+
+#execute the function:
+myfunction()
+
+#x should now be global, and accessible in the global scope.
+print(x)
